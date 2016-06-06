@@ -1,4 +1,5 @@
 import { Input, Component } from "@angular/core";
+import { ControlGroup } from "@angular/common";
 import { Cart, checkoutState } from "./Cart";
 import { ProductStore } from "./ProductStore";
 import { Payment } from "./Payment";
@@ -26,25 +27,25 @@ export class Checkout {
       .then(state => this.checkout = state)
   }
 
-  submitted(form) {
+  submitted(form: ControlGroup) {
     const prepared = Object.assign({}, form.value, {
       cardNumber: prepareCardNumber(form.value.cardNumber),
     });
 
     this.transaction = { pending: true };
 
-    this.payment.successful()
+    this.payment.successful(prepared)
       .then(() => {
         this.transaction = { successful: true };
       })
-      .catch((e) => {
+      .catch((e: Error) => {
         this.transaction = { successful: false };
       })
   }
 
   paymentMessage() {
     if(!this.transaction) {
-      return "":
+      return "";
     } else if(this.transaction.pending) {
       return "Sending your payment...";
     } else if(this.transaction.successful) {
@@ -56,7 +57,7 @@ export class Checkout {
 
 }
 
-function prepareCardNumber(cardNumber: string): number {
+function prepareCardNumber(cardNumber: string): string {
   return cardNumber.replace(/\D/g,"");
 }
 

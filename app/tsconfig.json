@@ -11,8 +11,7 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
-    "app2",
-    "pre-written",
+    "app/pre-written",
     "node_modules",
     "typings/main",
     "typings/main.d.ts"

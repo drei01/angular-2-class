@@ -30,10 +30,10 @@ export class Cart {
       });
 
     return Promise.all(entries)
-      .then(items => {
-        return Object.assign({
-          total: items.reduce((sum, item) => sum + item.subTotal, 0)
-        }, { items });
+      .then((cItems): checkoutState => {
+        const items: checkoutItem[] = <any>cItems;
+        const total = items.reduce<number>((sum: number, item: checkoutItem): number => sum + item.subTotal, 0);
+        return { items, total };
       });
   }
 
