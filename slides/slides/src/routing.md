@@ -21,10 +21,25 @@ import {Routes, ROUTER_DIRECTIVES}
   // ... more
 ])
 @Component({
-  // here's where our routed component attaches
-  directives: [ROUTER_DIRECTIVES],
-  template: '<router-outlet></router-outlet>',
 ```
+
+## Define where Routed content appears
+
+```typescript
+import {Routes, ROUTER_DIRECTIVES} 
+  from '@angular/router';
+
+@Component({
+  directives: [ROUTER_DIRECTIVES],
+
+  // here's where our routed component attaches
+  template: '<router-outlet></router-outlet>',
+})
+```
+
+## Why are routes strings?
+
+## Lazy-loading
 
 ## Links
 

@@ -3,7 +3,7 @@
 
 ## Goal
 
-- load in Reddit frontpage data
+- load in Payment frontpage data
 - prepare
 
 
@@ -12,7 +12,7 @@
 ```typescript
 import { Http } from '@angular/http';
 
-export class Reddit {
+export class Payment {
     frontpage() {
        return this.http.get(
          \`https://www.reddit.com/.json\`)
@@ -35,7 +35,7 @@ import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 
 @Injectable();
-export class Reddit {
+export class Payment {
   // this items deps will be looked up when
   // it's required
   constructor(private http: Http) {}
@@ -59,12 +59,12 @@ import { HTTP_PROVIDERS } from "@angular/http";
 ## Using
 
 ```typescript
-import { Reddit } from "./Reddit.service";
+import { Payment } from "./Payment.service";
 
 @Component(/\* ... \*/)
-export class Chart {
+export class Checkout {
   // we'll get an instance
-  constructor(reddit: Reddit) {
+  constructor(reddit: Payment) {
   }
 }
 ```
@@ -90,48 +90,49 @@ export class Chart {
 
 ```typescript
 import { provide } from '@angular/core';
-import { Reddit, AlternativeReddit } from 
-  './Reddit.service';
+import { Payment, AlternativePayment } from 
+  './Payment.service';
 
 // provide a valid alternative implementation
-// of Reddit (server-side, stubbed, web-sockets...)
+// of Payment (server-side, stubbed, web-sockets...)
 bootstrap(FrontPage, [
-  provide(Reddit, { 
-    useClass: AlternativeReddit,
+  provide(Payment, { 
+    useClass: AlternativePayment,
   },
 ])
 ```
 
 ```typescript
-import { Reddit } from './Reddit.service';
+import { Payment } from './Payment.service';
 
-class HelloComponent {
+class CheckoutComponent {
   // ...and components down the tree 
   // get them!
-  constructor(greeter: Reddit) { 
+  constructor(greeter: Payment) { 
   }
 }
 ```
 
-## Back to Reddit & HTTP
+## Back to Payment & HTTP
 
 ## Transform
 
 ```typescript
 import { Http } from '@angular/http';
+import { API_URL } from './constants';
 
 @Injectable()
-export class Reddit {
-    frontPage = \`//www.reddit.com/.json\`;
+export class Payment {
 
-    constructor(private http: Http) {}
+    constructor(private http: Http, apiUrl: API_URL) {}
 
-    frontpage() {
-       return this.http.get(this.frontPage)
+    checkout() {
+       return this.http.get(this.apiUrl + "/checkout")
          .toPromise()
          .then((resp) => {
+            // response object allows us to control parsing
             return resp.json()
-              .data.children.map(child => child.data)
+              .result;
          })
     }
 }

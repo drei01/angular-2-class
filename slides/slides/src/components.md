@@ -102,6 +102,7 @@ bootstrap(HelloComponent);
 
     hello-angular
 
+
 ## Template superpowers
 { title: 1}
 
@@ -135,5 +136,5 @@ bootstrap(HelloComponent);
 ## Let's have a go
 {exercise: 1}
 
-    template-powers
+    templates
 

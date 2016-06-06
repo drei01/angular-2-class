@@ -1,3 +1,5 @@
+"use strict";
+
 const marked = require('marked');
 const fs = require("fs");
 
@@ -14,11 +16,14 @@ marked.setOptions({
 
 const encoding = { encoding: "utf8" };
 
-for(const file of process.argv.slice(2)) {
+for(let file of process.argv.slice(2)) {
+  console.log(file);
+  
   const html = marked(fs.readFileSync(file, encoding));
   const wrapped = `
     <!doctype html>
     <head>
+      <link rel=stylesheet href="../app/node_modules/foundation-sites/dist/foundation.min.css">
       <link rel=stylesheet href="./style.css">
     </head>
     <body>
