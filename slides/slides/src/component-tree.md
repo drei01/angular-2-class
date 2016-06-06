@@ -4,7 +4,7 @@
 ## Child components
 
 ```typescript
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { HelloComponent } from './HelloComponent';
 
 export { FrontPage };
@@ -21,7 +21,7 @@ export { FrontPage };
 ```typescript
 // App.ts
 import { Component, FORM_DIRECTIVES, CORE_DIRECTIVES }
- from 'angular2/core';
+ from '@angular/core';
 
 @Component({
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],

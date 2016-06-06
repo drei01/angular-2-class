@@ -10,7 +10,7 @@
 ## Define
 
 ```typescript
-import { Http } from 'angular2/http';
+import { Http } from '@angular/http';
 
 export class Reddit {
     frontpage() {
@@ -31,8 +31,8 @@ export class Reddit {
 ## Ask for it!
 
 ```typescript
-import { Injectable } from "angular2/core";
-import { Http } from "angular2/http";
+import { Injectable } from "@angular/core";
+import { Http } from "@angular/http";
 
 @Injectable();
 export class Reddit {
@@ -48,7 +48,7 @@ export class Reddit {
 
 ```typescript
 // App.component.ts
-import { HTTP_PROVIDERS } from "angular2/http";
+import { HTTP_PROVIDERS } from "@angular/http";
 
 @Component({
   // ...
@@ -89,7 +89,7 @@ export class Chart {
 {notitle:1}
 
 ```typescript
-import { provide } from 'angular2/core';
+import { provide } from '@angular/core';
 import { Reddit, AlternativeReddit } from 
   './Reddit.service';
 
@@ -118,7 +118,7 @@ class HelloComponent {
 ## Transform
 
 ```typescript
-import { Http } from 'angular2/http';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class Reddit {

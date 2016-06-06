@@ -1,10 +1,6 @@
 ## Routing
 {title:1}
 
-## Component Router
-
-- 1.x and 2.x
-
 ## Structured
 
 ![component router](img/component-router.png)
@@ -14,52 +10,35 @@
 ## Define routes
 
 ```typescript
-import {RouteConfig, RouterOutlet} 
-  from 'angular2/router';
+import {Routes, ROUTER_DIRECTIVES} 
+  from '@angular/router';
 
-@RouteConfig([
+@Routes([
   {
-    path:'/chart/:facet',
-    name: 'ChartWithFacet',
-    component: ChartDisplay 
+    path:'/products/:id',
+    component: ProductPage 
   },
   // ... more
 ])
 @Component({
   // here's where our routed component attaches
-  directives: [RouterOutlet],
+  directives: [ROUTER_DIRECTIVES],
   template: '<router-outlet></router-outlet>',
-```
-
-## Configure
-
-
-```typescript
-import { ROUTER_PROVIDERS, LocationStrategy, 
-  PathLocationStrategy, APP_BASE_HREF } 
-  from "angular2/router";
-
-bootstrap(App, [
-  ROUTER_PROVIDERS
-  , provide(LocationStrategy, 
-    { useClass: PathLocationStrategy })
-  , provide(APP_BASE_HREF, { useValue: "/src" })
-]);
 ```
 
 ## Links
 
 ```typescript
 import { ROUTER_DIRECTIVES, RouteConfig }
-   from "angular2/router";
+   from "@angular/router";
 
 @Component({
-  selector: "datasets",
+  selector: "product-listing",
   directives: [ROUTER_DIRECTIVES],
   template: \`
-    <h1>hello from home page</h1>
+    <h1>Here are our products:</h1>
     <a [routerLink]=
-      "['/ChartWithFacet', { id: 'Router' }]">
+      "['/products', product.id]">
       Router
     </a>
   \`

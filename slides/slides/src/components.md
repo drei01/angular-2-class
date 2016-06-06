@@ -17,7 +17,7 @@
 {tags:{state:"notitle"}}
 
 ```javascript
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 ```
 
 
@@ -63,7 +63,7 @@ export { HelloComponent };
 ## All together
 
 ```javascript
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 
 export { HelloComponent };
 
@@ -82,7 +82,7 @@ class HelloComponent {
 
 ```javascript
 import { HelloComponent } from "./HelloComponent";
-import { bootstrap } from "angular2/platform/browser";
+import { bootstrap } from "@angular/platform-browser-dynamic";
 
 bootstrap(HelloComponent);
 ```
@@ -120,15 +120,6 @@ bootstrap(HelloComponent);
 ```html
 <!-- DOM events -->
 <form (submit)="create($event)">
-```
-
-## Two-way data-binding
-
-```html
-<!-- the local ourName property will be 
-     bound to `.name` of our some-editor 
-     component -->
-<some-editor ([name])="ourName">
 ```
 
 ## Local variables

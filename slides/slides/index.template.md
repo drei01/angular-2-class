@@ -2,9 +2,9 @@ frontpage
 
 big ideas
 
-typescript
-
 components
+
+typescript
 
 component tree
 
@@ -14,9 +14,11 @@ stores
 
 routing
 
-http
+outputs
 
-login
+forms
+
+http
 
 thanks
 

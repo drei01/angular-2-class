@@ -29,7 +29,7 @@
 ## Data in
 
 ```typescript
-import { Input } from "angular2/core";
+import { Input } from "@angular/core";
 
 @Component({ /* ... */ })
 class DataControl {
@@ -44,7 +44,7 @@ class DataControl {
 ## Data out
 
 ```typescript
-import { EventEmitter, Output } from "angular2/core";
+import { EventEmitter, Output } from "@angular/core";
 
 @Component({ /* ... */ })
 class DataControl {
