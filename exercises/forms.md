@@ -20,6 +20,9 @@ We want to accept payment using Angular's form system.
   1. We need to get a reference to the control for the card-number and reveal the error message only when it's invalid
   1. Use this to toggle the `error` class on the `<div>` surrounding the card-number input
 1. Let's handle the submission of the form
+  1. Use the `ngSubmit` event and pass it to handled
+  1. Format the `form.value` as JSON, and store it on the component
+  1. Display the submitted data somewhere on the form
 1. Woohoo! We built a credit-card form that isn't terrible
 
 
